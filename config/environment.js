@@ -18,8 +18,8 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      host: 'http://5dd66936ce4c30001440384d.mockapi.io',
+      namespace: '/api/v1'
     }
   };
 
