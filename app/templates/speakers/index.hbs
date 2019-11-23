@@ -1,0 +1,6 @@
+<h5 class="section-title h1">Speakers</h5>
+<div class="row">
+  {{#each model as |speaker|}}
+    <SpeakerListing @speaker={{speaker}} />
+  {{/each}}
+</div>

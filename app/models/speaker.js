@@ -8,7 +8,9 @@ export default Model.extend({
   position: DS.attr('string'),
   avatar: DS.attr('string'),
 
-  fullName: computed('name', 'surname', function() {
+  reports: DS.hasMany('report'),
+
+  fullName: computed('name', 'surname', function () {
     return `${this.surname} ${this.name}`;
   })
 });

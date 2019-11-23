@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'book-club',
     environment,
@@ -18,8 +18,8 @@ module.exports = function(environment) {
     },
 
     APP: {
-      host: 'http://5dd66936ce4c30001440384d.mockapi.io',
-      namespace: '/api/v1'
+      host: 'http://localhost:3000',
+      namespace: ''
     }
   };
 

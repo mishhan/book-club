@@ -1,0 +1,6 @@
+<h5 class="section-title h1">Books</h5>
+<div class="row">
+  {{#each model as |book|}}
+    <BookListing @book={{book}} />
+  {{/each}}
+</div>

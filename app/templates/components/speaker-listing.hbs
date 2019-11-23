@@ -1,12 +1,19 @@
-<div id={{speaker.id}} class="card">
-  {{#if speaker.avatar}}
+<div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="card">
+    {{#if speaker.avatar}}
     <img src={{speaker.avatar}} class="card-img-top" alt="Problem loading image...">
-  {{else}}
+    {{else}}
     <img src="assets/avatar.jpg" class="card-img-top" alt="Problem loading image...">
-  {{/if}}
-  <div class="card-body">
-    <h4 class="card-title"><span class="fullname">{{speaker.fullName}}</span></h4>
-    <h6 class="card-subtitle"><span class="position">{{speaker.position}}</span></h6>
-    <hr>
+    {{/if}}
+    <div class="card-body">
+      <h4 class="card-title"><span class="fullname">{{speaker.fullName}}</span></h4>
+      <h6 class="card-subtitle"><span class="position">{{speaker.position}}</span></h6>
+      <hr>
+      {{#link-to "speakers.edit" speaker.id}}
+      <button type="button" class="btn btn-secondary">
+        <i class="far fa-edit"></i>
+      </button>
+      {{/link-to}}
+    </div>
   </div>
 </div>

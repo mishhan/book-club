@@ -1,0 +1,10 @@
+<ReportForm @report={{this.model}} @speakers={{this.speakers}} @books={{this.books}}
+  @addSpeaker={{action "showSpeakerModal"}} @addBook={{action "showBookModal"}} @addCancel={{action "add"}} />
+
+<ModalDialog @header="New Speaker" @isOpen={{this.showSpeakerModal}}>
+  <SpeakerForm @speaker={{this.newSpeaker}} @addCancel={{action "closeSpeakerModal"}} />
+</ModalDialog>
+
+<ModalDialog @header="New Book" @isOpen={{this.showBookModal}}>
+  <BookForm @book={{this.newBook}} @addCancel={{action "closeBookModal"}} />
+</ModalDialog>

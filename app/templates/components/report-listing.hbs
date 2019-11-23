@@ -1,0 +1,38 @@
+﻿<div class="col-md-12 report-item">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-2 text-center">
+      <img class="rounded" src={{report.speaker.avatar}} alt="Problem loading image..">
+      <p class="text-center">{{report.speaker.fullName}}</p>
+    </div>
+    <div class="col-md-2">
+      <h5>Book</h5>
+      <h6>{{report.book.name}}</h6>
+      <h7>{{report.book.author}}</h7>
+      <p>Rating: {{report.bookRating}}</p>
+      <a href={{book.link}} class="btn btn-primary link {{if (not report.book.hasLink) "disabled"}}">
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      {{#link-to "books.edit" report.book.id}}
+      <button type="button" class="btn btn-secondary">
+        <i class="far fa-edit"></i>
+      </button>
+      {{/link-to}}
+    </div>
+    <div class="col-md-6">
+      <p class="text-left">{{report.review}}</p>
+    </div>
+    <div class="col-md-2">
+      <a href={{report.video}} class="btn btn-primary link {{if (not report.hasVideo) "disabled"}}">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href={{report.presentation}} class="btn btn-primary link {{if (not report.hasPresentation) "disabled"}}">
+        <i class="far fa-file-powerpoint"></i>
+      </a>
+      {{#link-to "reports.edit" report.id}}
+      <button type="button" class="btn btn-danger">
+        <i class="far fa-edit"></i>
+      </button>
+      {{/link-to}}
+    </div>
+  </div>
+</div>
