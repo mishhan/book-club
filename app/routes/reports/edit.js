@@ -1,21 +1,28 @@
-import Route from '@ember/routing/route';
-import { hash } from 'rsvp';
+import Route from "@ember/routing/route";
 
 export default Route.extend({
-
   model(params) {
-    return hash({
-      report: this.store.findRecord('report', params.report_id),
-      speakers: this.store.findAll('speaker'),
-      books: this.store.findAll('book')
-    });
+    return {
+      reports: this.store.peekRecord("report", params.report_id),
+      speakers: this.store.peekAll("speaker"),
+      books: this.store.peekAll("book")
+    };
   },
 
   setupController(controller, model) {
-    const { report, speakers, books } = model;
-    this._super(controller, report);
+    const { reports, speakers, books } = model;
+    this._super(controller, reports);
 
-    controller.set('speakers', speakers);
-    controller.set('books', books);
+    controller.set("speakers", speakers);
+    controller.set("books", books);
+  },
+
+  actions: {
+    // eslint-disable-next-line no-unused-vars
+    willTransition(transition) {
+      if (!this.controller.model.isSaving) {
+        this.controller.model.rollbackAttributes();
+      }
+    }
   }
 });

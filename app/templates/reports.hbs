@@ -1,1 +1,14 @@
+<h2 class="text-center my-3">Reports</h2>
+<nav class="nav">
+  {{#link-to "reports.index" class="my-2"}}
+    <button type="button" class="btn btn-primary">
+      <i class="far fa-list-alt"></i>
+    </button>
+  {{/link-to}}
+  {{#link-to "reports.new" class="m-2"}}
+    <button type="button" class="btn btn-primary">
+      <i class="far fa-plus-square"></i>
+    </button>
+  {{/link-to}}
+</nav>
 {{outlet}}

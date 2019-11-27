@@ -4,7 +4,7 @@
     <div class="form-row h-100 justify-content-center align-items-center">
       <div class="col-12">
         <div class="input-group">
-          <input id="report-date" type="text" class="form-control" value={{report.date}}>
+          {{input id="report-date" type="text" class="form-control" value=report.date}}
           <div class="input-group-append">
             <span class="input-group-text far non-block fa-lg fa-calendar-alt"></span>
           </div>
@@ -16,11 +16,11 @@
     <label for="speaker">Speaker</label>
     <div class="form-row h-100 justify-content-center align-items-center">
       <div class="col-10">
-        <PowerSelect @options={{this.speakers}} @selected={{report.speaker}} @searchField="fullName"
-          @onchange={{action (mut report.speaker)}} as |speaker|>
+        {{#power-select options=speakers selected=report.speaker searchField="fullName"
+          allowClear=true triggerClass="form-control" onchange=(action (mut report.speaker)) as |speaker|}}
           <img src={{speaker.avatar}} class="box-icon" alt="Problem loading image..">
           <strong>{{speaker.fullName}}</strong>
-        </PowerSelect>
+        {{/power-select}}
       </div>
       <div class="col-2">
         <button type="button" class="btn btn-secondary" onclick={{addSpeaker}}>
@@ -33,11 +33,11 @@
     <label for="book">Book</label>
     <div class="form-row h-100 justify-content-center align-items-center">
       <div class="col-10">
-        <PowerSelect @options={{this.books}} @selected={{report.book}} @searchField="name"
-          @onchange={{action (mut report.speaker)}} as |book|>
-          <img src={{book.image}} class="box-icon" alt="Not found.." onerror="this.src='/assets/book.jpg'">
+        {{#power-select options=books selected=report.book searchField="name"
+          allowClear=true triggerClass="form-control" onchange=(action (mut report.book)) as |book|}}
+          <img src={{book.image}} class="box-icon" alt="Not found..">
           <strong>{{book.name}}</strong><span> {{book.author}}</span>
-        </PowerSelect>
+        {{/power-select}}
       </div>
       <div class="col-2">
         <button type="button" class="btn btn-secondary" onclick={{addBook}}>

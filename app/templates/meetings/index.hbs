@@ -1,0 +1,14 @@
+<h2 class="text-center my-3">Meetings</h2>
+<div class="row">
+  {{#meeting-list-filter speakers=speakers books=books date=filterDate filterAction=(action "filterMeetings") as |filteredResults|}}
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          {{#each filteredResults as |meeting|}}
+            {{meeting-listing meeting=meeting}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/meeting-list-filter}}
+</div>

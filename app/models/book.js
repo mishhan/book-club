@@ -1,5 +1,5 @@
 import DS from "ember-data";
-import { notEmpty } from "@ember/object/computed";
+import { computed } from "@ember/object";
 const { Model } = DS;
 
 export default Model.extend({
@@ -9,7 +9,18 @@ export default Model.extend({
   image: DS.attr("string"),
   link: DS.attr("string"),
 
-  hasLink: notEmpty("link"),
+  hasLink: computed.notEmpty("link"),
+  hasReports: computed.notEmpty("reports"),
 
-  reports: DS.hasMany("report")
+  reports: DS.hasMany("report", { async: false }),
+
+  rating: computed("reports.[]", function() {
+    let rating = 0;
+    let count = 0;
+    this.get("reports").forEach(report => {
+      rating += report.get("bookRating");
+      count += 1;
+    });
+    return count === 0 ? 0 : rating / count;
+  })
 });
