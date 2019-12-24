@@ -1,5 +1,5 @@
 <div class="row">
-  {{#each model as |book|}}
+  {{#each sortedBooks as |book|}}
     {{book-listing book=book deleteBook=(action "deleteBook")}}
   {{/each}}
 </div>

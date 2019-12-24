@@ -3,12 +3,7 @@
     <label for="date">Date</label>
     <div class="form-row h-100 justify-content-center align-items-center">
       <div class="col-12">
-        <div class="input-group">
-          {{input id="report-date" type="text" class="form-control" value=report.date}}
-          <div class="input-group-append">
-            <span class="input-group-text far non-block fa-lg fa-calendar-alt"></span>
-          </div>
-        </div>
+        {{common/date-field date=report.date}}
       </div>
     </div>
   </div>
@@ -23,9 +18,7 @@
         {{/power-select}}
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-secondary" onclick={{addSpeaker}}>
-          <i class="fas fa-external-link-alt"></i>
-        </button>
+        {{common/button-field cssClass="btn btn-secondary" cssIconClass="fas fa-external-link-alt" onClick=addSpeaker}}
       </div>
     </div>
   </div>
@@ -40,37 +33,18 @@
         {{/power-select}}
       </div>
       <div class="col-2">
-        <button type="button" class="btn btn-secondary" onclick={{addBook}}>
-          <i class="fas fa-external-link-alt"></i>
-        </button>
+        {{common/button-field cssClass="btn btn-secondary" cssIconClass="fas fa-external-link-alt" onClick=addBook}}
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="review">Review</label>
-    {{textarea class="form-control" id="review" value=report.review}}
-  </div>
-  <div class="form-group">
-    <label for="video">Video</label>
-    {{input id="video" type="text" class="form-control" value=report.link}}
-  </div>
-  <div class="form-group">
-    <label for="presentation">Presentation</label>
-    <div class="form-row">
-      <div class="col-md-3 col-sm-8 col-12">
-        <input type="file" class="form-control-file" id="presentation">
-      </div>
-    </div>
-  </div>
+  {{common/form-text-field label="Review" textarea=true text=report.review}}
+  {{common/form-text-field label="Video" text=report.link}}
+  {{common/form-file-field label="Presentation" text=report.presentation}}
   <div class="form-group">
     <div class="row">
       <div class="col-md-6 offset-md-6 col-8 offset-4 text-right">
-        <button type="button" class="btn btn-primary" onclick={{action "cancel"}}>
-          <i class="far fa-times-circle"></i>
-        </button>
-        <button type="button" class="btn btn-success" onclick={{action "add"}}>
-          <i class="fas fa-check"></i>
-        </button>
+        {{common/button-field cssClass="btn btn-danger" cssIconClass="far fa-times-circle" onClick=(action "cancel")}}
+        {{common/button-field cssClass="btn btn-success" cssIconClass="fas fa-check" onClick=(action "add")}}
       </div>
     </div>
   </div>

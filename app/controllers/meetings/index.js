@@ -1,14 +1,21 @@
 import Controller from "@ember/controller";
 import { isEqual } from "@ember/utils";
+import { computed } from "@ember/object";
 
 export default Controller.extend({
+
+  meetings: computed.alias('model'),
+  // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
+  sortDefinition: ['date:desc', 'reports.length:desc'],
+  sortedMeetings: computed.sort('meetings', 'sortDefinition'),
+
   filterDate: null,
 
   actions: {
     filterMeetings(filterData) {
       const { date, speaker, book } = filterData;
       if (date || speaker || book) {
-        let allMetings = this.store.peekAll("meeting");
+        let allMetings = this.sortedMeetings;
         return allMetings.filter(item => {
           let result = true;
           result = date
@@ -28,7 +35,7 @@ export default Controller.extend({
           return result;
         });
       } else {
-        return this.store.peekAll("meeting");
+        return this.sortedMeetings;
       }
     }
   }

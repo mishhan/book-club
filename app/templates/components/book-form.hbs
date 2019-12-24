@@ -1,33 +1,14 @@
 <form>
-  <div class="form-group">
-    <label for="book-image">Image</label>
-    <input type="file" class="form-control-file" id="book-image">
-  </div>
-  <div class="form-group">
-    <label for="book-name">Name</label>
-    {{input type="text" class="form-control" id="book-name" value=book.name}}
-  </div>
-  <div class="form-group">
-    <label for="book-author">Author</label>
-    {{input type="text" class="form-control" id="book-author" value=book.author}}
-  </div>
-  <div class="form-group">
-    <label for="book-pageCount">Page Count</label>
-    {{input type="text" class="form-control" id="book-pageCount" value=book.pageCount}}
-  </div>
-  <div class="form-group">
-    <label for="book-link">Link</label>
-    {{input type="text" class="form-control" id="book-link" value=book.link}}
-  </div>
+  {{common/form-file-field label="Image" text=book.image}}
+  {{common/form-text-field label="Name" text=book.name}}
+  {{common/form-text-field label="Author" text=book.author}}
+  {{common/form-text-field label="Page Count" text=book.pageCount}}
+  {{common/form-text-field label="Link" text=book.link}}
   <div class="form-group">
     <div class="row">
       <div class="col-md-6 offset-md-6 col-8 offset-4 text-right">
-        <button type="button" class="btn btn-primary" onclick={{action "cancel"}}>
-          <i class="far fa-times-circle"></i>
-        </button>
-        <button type="button" class="btn btn-primary" onclick={{action "add"}}>
-          <i class="fas fa-check"></i>
-        </button>
+        {{common/button-field cssClass="btn btn-danger" cssIconClass="far fa-times-circle" onClick=(action "cancel")}}
+        {{common/button-field cssClass="btn btn-success" cssIconClass="fas fa-check" onClick=(action "add")}}
       </div>
     </div>
   </div>

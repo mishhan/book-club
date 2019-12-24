@@ -1,21 +1,20 @@
 <div class="col-xs-12 col-sm-6 col-md-4 mb-2">
   <div class="card">
-    {{#if speaker.avatar}}
-      <img src={{speaker.avatar}} class="card-img-top" alt="Problem loading image...">
-    {{else}}
-      <img src="assets/avatar.jpg" class="card-img-top" alt="Problem loading image...">
-    {{/if}}
+    {{
+      common/image-field 
+      hasImage=speaker.hasAvatar
+      imagePath=speaker.avatar
+      defaultImage="assets/avatar.jpg"
+      cssClass="card-img-top"
+      altText="Problem loading image..."
+    }}
     <div class="card-body">
       <h4 class="card-title"><span class="fullname">{{speaker.fullName}}</span></h4>
       <h6 class="card-subtitle my-3"><span class="position">{{speaker.position}}</span></h6>
-      {{#link-to "speakers.edit" speaker.id}}
-        <button type="button" class="btn btn-secondary">
-          <i class="far fa-edit"></i>
-        </button>
+      {{#link-to "speakers.edit" speaker.id tagName="button" class="btn btn-secondary link"}}
+        <i class="far fa-edit"></i>
       {{/link-to}}
-      <button type="button" class="btn btn-danger" onclick={{action "deleteSpeaker" speaker}}>
-        <i class="far fa-trash-alt"></i>
-      </button>
+      {{common/button-field cssClass="btn btn-danger" cssIconClass="far fa-trash-alt" onClick=(action "deleteSpeaker" speaker)}}
       {{#if speaker.hasReports}}
         <ul class="list-group mt-3">
           {{#each speaker.reports as |report|}}

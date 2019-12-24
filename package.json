@@ -14,7 +14,7 @@
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start:server": "json-server json-server.js --no-cors",
+    "start-server": "json-server json-server.js --no-cors",
     "start": "ember serve",
     "test": "ember test"
   },
@@ -56,6 +56,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "bootstrap": "^4.3.1",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "progressbar.js": "^1.1.0"
   }
 }

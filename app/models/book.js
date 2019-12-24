@@ -9,6 +9,7 @@ export default Model.extend({
   image: DS.attr("string"),
   link: DS.attr("string"),
 
+  hasImage: computed.notEmpty("image"),
   hasLink: computed.notEmpty("link"),
   hasReports: computed.notEmpty("reports"),
 
@@ -21,6 +22,10 @@ export default Model.extend({
       rating += report.get("bookRating");
       count += 1;
     });
-    return count === 0 ? 0 : rating / count;
+    return count === 0 ? 0 : (rating / count).toFixed(2);
+  }),
+
+  scaledRating: computed('rating', function() {
+    return Number(this.get('rating')) / 100;
   })
 });

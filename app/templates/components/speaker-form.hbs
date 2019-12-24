@@ -1,29 +1,13 @@
 <form>
-  <div class="form-group">
-    <label for="speaker-avatar">Avatar</label>
-    <input type="file" class="form-control-file" id="speaker-avatar">
-  </div>
-  <div class="form-group">
-    <label for="speaker-name">Name</label>
-    {{input type="text" class="form-control" id="speaker-name" value=speaker.name}}
-  </div>
-  <div class="form-group">
-    <label for="speaker-surname">Surname</label>
-    {{input type="text" class="form-control" id="speaker-surname" value=speaker.surname}}
-  </div>
-  <div class="form-group">
-    <label for="speaker-position">Position</label>
-    {{input type="text" class="form-control" id="speaker-position" value=speaker.position}}
-  </div>
+  {{common/form-file-field label="Avatar" text=speaker.avatar}}
+  {{common/form-text-field label="Name" text=speaker.name}}
+  {{common/form-text-field label="Surname" text=speaker.surname}}
+  {{common/form-text-field label="Position" text=speaker.position}}
   <div class="form-group">
     <div class="row">
       <div class="col-md-6 offset-md-6 col-8 offset-4 text-right">
-        <button type="button" class="btn btn-primary" onclick={{action "cancel"}}>
-          <i class="far fa-times-circle"></i>
-        </button>
-        <button type="button" class="btn btn-primary" onclick={{action "add"}}>
-          <i class="fas fa-check"></i>
-        </button>
+        {{common/button-field cssClass="btn btn-danger" cssIconClass="far fa-times-circle" onClick=(action "cancel")}}
+        {{common/button-field cssClass="btn btn-success" cssIconClass="fas fa-check" onClick=(action "add")}}
       </div>
     </div>
   </div>

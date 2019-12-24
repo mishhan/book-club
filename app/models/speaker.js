@@ -10,6 +10,7 @@ export default Model.extend({
 
   reports: DS.hasMany("report"),
 
+  hasAvatar: computed.notEmpty("avatar"),
   hasReports: computed.notEmpty("reports"),
   fullName: computed("name", "surname", function() {
     return `${this.surname} ${this.name}`;

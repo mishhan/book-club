@@ -1,5 +1,4 @@
 import Component from "@ember/component";
-import JQuery from "jquery";
 
 export default Component.extend({
   tagName: "",

@@ -7,3 +7,7 @@
 .non-block {
   display: inherit;
 }
+
+.progress-container {
+  position: relative;
+}

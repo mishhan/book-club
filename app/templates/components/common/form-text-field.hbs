@@ -1,0 +1,8 @@
+  <div class="form-group">
+    <label>{{label}}</label>
+    {{#if textarea}}
+      {{textarea type="text" class="form-control" value=text}}
+    {{else}}
+      {{input type="text" class="form-control" value=text}}
+    {{/if}}
+  </div>

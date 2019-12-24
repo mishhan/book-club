@@ -8,22 +8,19 @@ module.exports = function(environment) {
     locationType: "auto",
     EmberENV: {
       FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
         Date: false
       }
     },
 
     APP: {
       /** local */
-      // host: 'http://localhost:3000',
-      // namespace: ''
+      host: 'http://localhost:3000',
+      namespace: ''
       /** heroku */
-      host: "https://mishhan-book-club.herokuapp.com",
-      namespace: ""
+      // host: "https://mishhan-book-club.herokuapp.com",
+      // namespace: ""
     }
   };
 

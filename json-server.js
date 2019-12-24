@@ -19,7 +19,7 @@ module.exports = () => {
       name: faker.name.jobArea(),
       author: faker.name.findName(),
       pageCount: faker.random.number(),
-      image: faker.image.business(),
+      image: faker.image.technics(),
       link: faker.internet.url()
     };
   });
@@ -35,15 +35,14 @@ module.exports = () => {
     return {
       id: number,
       date: faker.date.recent(),
-      bookRating: faker.random.number(),
+      bookRating: faker.random.number(100),
       video: faker.internet.url(),
       presentation: faker.internet.url(),
       review: faker.lorem.paragraph(),
 
-      speaker:
-        speakers[Math.floor(Math.random() * (speakers.length - 1)) + 1].id,
-      book: books[Math.floor(Math.random() * (books.length - 1)) + 1].id,
-      meeting: meetings[Math.floor(Math.random() * (meetings.length - 1))].id
+      speaker: _.sample(speakers).id,
+      book: _.sample(books).id,
+      meeting: _.sample(meetings).id
     };
   });
 

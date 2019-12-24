@@ -1,5 +1,5 @@
 <div class="row">
-  {{#each model as |report|}}
+  {{#each sortedReports as |report|}}
     <div class="col-md-12 mb-2 py-2 border border-info rounded">
       {{report-listing report=report deleteReport=(action "deleteReport")}}
     </div>
