@@ -20,7 +20,8 @@ Router.map(function () {
     this.route('new');
   });
   this.route('meetings', function() {
-    this.route('edit');
+    this.route('edit', { path: '/:meeting_id'});
+    this.route('new');
   });
 });
 

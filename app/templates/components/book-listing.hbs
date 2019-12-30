@@ -21,7 +21,7 @@
         <i class="fas fa-external-link-alt"></i>
       </a>
       {{#link-to "books.edit" book.id tagName="button" class="btn btn-secondary link"}}
-          <i class="far fa-edit"></i>
+        <i class="far fa-edit"></i>
       {{/link-to}}
       {{common/button-field cssClass="btn btn-danger" cssIconClass="far fa-trash-alt" onClick=(action "deleteBook" book)}}
       {{#if book.hasReports}}

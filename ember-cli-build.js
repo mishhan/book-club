@@ -24,7 +24,6 @@ module.exports = function(defaults) {
   app.import("vendor/webfonts/fa-brands-400.ttf");
 
   app.import("node_modules/moment/moment.js");
-  app.import("node_modules/progressbar.js/dist/progressbar.js");
   app.import("vendor/datetimepicker/bootstrap-datetimepicker.css");
   app.import("vendor/datetimepicker/bootstrap-datetimepicker.js");
 

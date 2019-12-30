@@ -4,13 +4,25 @@
       <h4>Date</h4>
       {{common/date-field date=meeting.date disabled=true}}
     </div>
+    <div class="col-md-12 mt-2">
+      {{#link-to "meetings.edit" meeting.id tagName="button" class="btn btn-secondary"}}
+        <i class="far fa-edit"></i> 
+      {{/link-to}}
+      <button type="button" class="btn btn-danger" onclick={{action deleteMeeting meeting}}>
+        <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
   </div>
-  <ul class="list-group mb-2">
-    <h4>Report List</h4>
-    {{#each meeting.reports as |report|}}
-      <li class="list-group-item">
-        {{report-listing report=report}}
-      </li>
-    {{/each}}
+  <ul class="list-group my-2">
+    {{#if meeting.hasReports}}
+      <h4>Report List</h4>
+      {{#each meeting.reports as |report|}}
+        <li class="list-group-item">
+          {{report-listing report=report deleteReport=deleteReport}}
+        </li>
+      {{/each}}
+    {{else}}
+      <h4>There're no reports on this date</h4>
+    {{/if}}
   </ul>
 </div>

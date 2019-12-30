@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4 col-12">
       <h5>Speaker</h5>
-      {{#power-select options=speakers selected=selectedSpeaker searchField="fullName" allowClear=true
+      {{#power-select options=speakers selected=selectedSpeaker searchField="fullName" placeholder="Choose speaker to filter" allowClear=true
         triggerClass="form-control" onchange=(action (mut selectedSpeaker)) as |speaker|}}
         <img src={{speaker.avatar}} class="box-icon" alt="Problem loading image..">
         <strong>{{speaker.fullName}}</strong>
@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-4 col-12">
       <h5>Book</h5>
-      {{#power-select options=books selected=selectedBook searchField="name" allowClear=true
+      {{#power-select options=books selected=selectedBook searchField="name" placeholder="Choose book to filter" allowClear=true
         triggerClass="form-control" onchange=(action (mut selectedBook)) as |book|}}
         <img src={{book.image}} class="box-icon" alt="Not found..">
         <strong>{{book.name}}</strong><span> {{book.author}}</span>
@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-3 col-12">
       <h5>Date</h5>
-      {{common/date-field date=filterDate disabled=false}}
+      {{common/date-field date=filterDate dateFormat="DD.MM.YYYY" placeholder="Choose date to filter"}}
     </div>
     <div class="col-md-1 col-12 text-right mt-auto">
       <button type="button" class="btn btn-primary" onclick={{action "filter"}}>

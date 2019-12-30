@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import ProgressBar from 'progressbar.js';
 
 export default Component.extend({
   tagName: 'div',
@@ -7,8 +8,7 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    // eslint-disable-next-line no-undef
-    var bar = new ProgressBar.Line(this.element, {
+    const bar = new ProgressBar.Line(this.element, {
       strokeWidth: 4,
       easing: 'easeInOut',
       duration: 1400,
@@ -24,7 +24,7 @@ export default Component.extend({
           color: '#999',
           position: 'absolute',
           right: '0',
-          top: '12px',
+          top: '15px',
           padding: 0,
           margin: 0,
           transform: null

@@ -32,10 +32,8 @@
         </a>
       </div>
       <div class="col-12 m-2">
-        {{#link-to "reports.edit" report.id}}
-          <button type="button" class="btn btn-secondary">
-            <i class="far fa-edit"></i>
-          </button>
+        {{#link-to "reports.edit" report.id tagName="button" class="btn btn-secondary"}}
+          <i class="far fa-edit"></i> 
         {{/link-to}}
         <button type="button" class="btn btn-danger" onclick={{action "deleteReport" report}}>
           <i class="far fa-trash-alt"></i>

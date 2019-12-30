@@ -4,7 +4,9 @@ const { Model } = DS;
 
 export default Model.extend({
   date: DS.attr("date"),
-  reports: DS.hasMany("report"),
+  reports: DS.hasMany("report", { async: false }),
+
+  hasReports: computed.notEmpty('reports'),
 
   isConducted: computed("date", function() {
     const currentDate = new Date();

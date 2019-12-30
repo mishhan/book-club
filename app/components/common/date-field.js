@@ -2,11 +2,15 @@ import Component from "@ember/component";
 import JQuery from "jquery";
 
 export default Component.extend({
+
+  date: null,
+  dateFormat: 'DD.MM.YYYY hh:mm',
+
   didInsertElement() {
     this._super(...arguments);
     JQuery(`#${this.elementId} input.form-control`).datetimepicker({
       date: this.date,
-      format: "DD.MM.YYYY hh:mm",
+      format: this.dateFormat,
       showClear: true,
       icons: {
         time: "far fa-clock",

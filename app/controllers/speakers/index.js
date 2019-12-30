@@ -10,7 +10,10 @@ export default Controller.extend({
 
   actions: {
     deleteSpeaker(speaker) {
-      speaker.destroyRecord();
+      speaker.destroyRecord()
+      .then((deletedSpeaker) => {
+        deletedSpeaker.reports.forEach(report => report.destroyRecord());
+      });
     }
   }
 });

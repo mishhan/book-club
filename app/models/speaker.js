@@ -8,7 +8,7 @@ export default Model.extend({
   position: DS.attr("string"),
   avatar: DS.attr("string"),
 
-  reports: DS.hasMany("report"),
+  reports: DS.hasMany("report" , { async: false }),
 
   hasAvatar: computed.notEmpty("avatar"),
   hasReports: computed.notEmpty("reports"),
